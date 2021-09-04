@@ -1,11 +1,12 @@
-package com.example.recyclerviewdemo
+package com.example.recyclerviewdemo.ui.contact
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
+import com.example.recyclerviewdemo.R
 import com.example.recyclerviewdemo.databinding.ListItemBinding
-import com.example.recyclerviewdemo.model.Contact
+import com.example.recyclerviewdemo.data.model.Contact
 
 class ContactAdapter(private val contacts: List<Contact>) :
     RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
