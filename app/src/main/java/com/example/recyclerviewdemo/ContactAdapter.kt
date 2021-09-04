@@ -19,8 +19,8 @@ class ContactAdapter(private val contacts: List<Contact>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val contact = contacts[position]
 
-        with(holder) {
-            binding.tvContact.text = contact.text
+        with(holder.binding) {
+            tvContact.text = contact.text
         }
     }
 
