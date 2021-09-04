@@ -1,4 +1,4 @@
-package com.example.recyclerviewdemo.ui.contact
+package com.example.recyclerviewdemo.ui.person
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import com.example.recyclerviewdemo.R
 import com.example.recyclerviewdemo.databinding.ListItemBinding
-import com.example.recyclerviewdemo.data.model.Contact
+import com.example.recyclerviewdemo.data.model.Person
 
-class ContactAdapter(private val contacts: List<Contact>) :
-    RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
+class PersonAdapter(private val people: List<Person>) :
+    RecyclerView.Adapter<PersonAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -18,14 +18,14 @@ class ContactAdapter(private val contacts: List<Contact>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val contact = contacts[position]
+        val person = people[position]
 
         with(holder.binding) {
-            tvContact.text = contact.text
+            tvName.text = person.name
         }
     }
 
-    override fun getItemCount() = contacts.size
+    override fun getItemCount() = people.size
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ListItemBinding.bind(itemView)

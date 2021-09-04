@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">RecyclerViewDemo</string>
-    <string name="contacts_demo">Contacts Demo</string>
+    <string name="people">People</string>
 </resources>

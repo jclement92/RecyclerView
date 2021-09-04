@@ -1,4 +1,4 @@
-package com.example.recyclerviewdemo.ui.contact
+package com.example.recyclerviewdemo.ui.person
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,24 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.recyclerviewdemo.databinding.MainFragmentBinding
+import com.example.recyclerviewdemo.databinding.PersonFragmentBinding
 
-class ContactFragment : Fragment() {
-    private lateinit var binding: MainFragmentBinding
-    private lateinit var viewModel: ContactViewModel
-    private lateinit var contactAdapter: ContactAdapter
+class PersonFragment : Fragment() {
+    private lateinit var binding: PersonFragmentBinding
+    private lateinit var viewModel: PersonViewModel
+    private lateinit var personAdapter: PersonAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = MainFragmentBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
+        binding = PersonFragmentBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this).get(PersonViewModel::class.java)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        with(binding.rvContacts) {
+        with(binding.rvPeople) {
             setHasFixedSize(true)
 
             val dividerItemDecoration = DividerItemDecoration(
@@ -35,11 +35,11 @@ class ContactFragment : Fragment() {
             addItemDecoration(dividerItemDecoration)
         }
 
-        viewModel.contactList.observe(viewLifecycleOwner, {
-            contactAdapter = ContactAdapter(it)
+        viewModel.personList.observe(viewLifecycleOwner, {
+            personAdapter = PersonAdapter(it)
 
-            binding.rvContacts.layoutManager = LinearLayoutManager(context)
-            binding.rvContacts.adapter = contactAdapter
+            binding.rvPeople.layoutManager = LinearLayoutManager(context)
+            binding.rvPeople.adapter = personAdapter
         })
 
     }

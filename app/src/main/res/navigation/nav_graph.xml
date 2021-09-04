@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/personFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.recyclerviewdemo.ui.contact.ContactFragment"
+        android:id="@+id/personFragment"
+        android:name="com.example.recyclerviewdemo.ui.person.PersonFragment"
         android:label="main_fragment"
-        tools:layout="@layout/main_fragment" />
+        tools:layout="@layout/person_fragment" />
 
 </navigation>
