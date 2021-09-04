@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewdemo.model.Contact
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var rvContact: RecyclerView
+    private lateinit var rvContacts: RecyclerView
     private lateinit var contactAdapter: ContactAdapter
     private lateinit var contacts: MutableList<Contact>
 
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rvContact = findViewById(R.id.rvNames)
+        rvContacts = findViewById(R.id.rvContacts)
 
         contacts = arrayListOf(
             Contact("Bob"),
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         contactAdapter = ContactAdapter(contacts)
 
-        with(rvContact) {
+        with(rvContacts) {
             setHasFixedSize(true)
 
             val dividerItemDecoration = DividerItemDecoration(

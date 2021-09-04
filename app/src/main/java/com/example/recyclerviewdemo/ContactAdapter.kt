@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.TextView
 import com.example.recyclerviewdemo.model.Contact
 
-class ContactAdapter(private val names: List<Contact>) :
+class ContactAdapter(private val contacts: List<Contact>) :
     RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -17,16 +17,16 @@ class ContactAdapter(private val names: List<Contact>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val note = names[position]
+        val contact = contacts[position]
 
         with(holder) {
-            tvName.text = note.text
+            tvContact.text = contact.text
         }
     }
 
-    override fun getItemCount() = names.size
+    override fun getItemCount() = contacts.size
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvName: TextView = view.findViewById(R.id.tvName)
+        val tvContact: TextView = view.findViewById(R.id.tvContact)
     }
 }
