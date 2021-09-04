@@ -3,6 +3,7 @@ package com.example.recyclerviewdemo;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         names.add(new Note("Sarah"));
 
         adapter = new Adapter(names);
+
+        DividerItemDecoration dividerItemDecoration =
+                new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        rvNames.addItemDecoration(dividerItemDecoration);
 
         rvNames.setLayoutManager(new LinearLayoutManager(this));
         rvNames.setAdapter(adapter);
