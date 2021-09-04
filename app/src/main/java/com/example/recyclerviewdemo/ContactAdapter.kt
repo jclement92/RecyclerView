@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.TextView
+import com.example.recyclerviewdemo.databinding.ListItemBinding
 import com.example.recyclerviewdemo.model.Contact
 
 class ContactAdapter(private val contacts: List<Contact>) :
@@ -20,13 +20,13 @@ class ContactAdapter(private val contacts: List<Contact>) :
         val contact = contacts[position]
 
         with(holder) {
-            tvContact.text = contact.text
+            binding.tvContact.text = contact.text
         }
     }
 
     override fun getItemCount() = contacts.size
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvContact: TextView = view.findViewById(R.id.tvContact)
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val binding = ListItemBinding.bind(itemView)
     }
 }

@@ -5,18 +5,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerviewdemo.databinding.ActivityMainBinding
 import com.example.recyclerviewdemo.model.Contact
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var rvContacts: RecyclerView
+    private lateinit var binding: ActivityMainBinding
     private lateinit var contactAdapter: ContactAdapter
     private lateinit var contacts: MutableList<Contact>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        rvContacts = findViewById(R.id.rvContacts)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         contacts = arrayListOf(
             Contact("Bob"),
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         contactAdapter = ContactAdapter(contacts)
 
-        with(rvContacts) {
+        with(binding.rvContacts) {
             setHasFixedSize(true)
 
             val dividerItemDecoration = DividerItemDecoration(
