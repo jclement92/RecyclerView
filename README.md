@@ -1,4 +1,4 @@
-# RecyclerView Demo
+# RecyclerView
 Basic RecyclerView implemented using MVVM architecture. The following Jetpack libraries are used: 
 - Data Binding
 - LiveData
