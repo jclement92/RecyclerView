@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.recyclerviewdemo.R
 import com.example.recyclerviewdemo.databinding.PersonFragmentBinding
 
 class PersonFragment : Fragment() {
@@ -20,7 +22,9 @@ class PersonFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = PersonFragmentBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.person_fragment, container, false
+        )
         return binding.root
     }
 
@@ -41,7 +45,5 @@ class PersonFragment : Fragment() {
             binding.rvPeople.layoutManager = LinearLayoutManager(context)
             binding.rvPeople.adapter = personAdapter
         })
-
     }
-
 }
