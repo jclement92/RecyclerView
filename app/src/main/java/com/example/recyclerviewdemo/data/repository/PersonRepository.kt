@@ -4,7 +4,7 @@ import com.example.recyclerviewdemo.data.model.Person
 
 object PersonRepository {
 
-    fun getPeople() = mutableListOf(
+    fun getPeople() = listOf(
         Person("Bob"),
         Person("John"),
         Person("Sarah")
