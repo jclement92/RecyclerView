@@ -18,10 +18,8 @@ class PersonAdapter(private val people: List<Person>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val person = people[position]
-
-        with(holder.binding) {
-            tvName.text = person.name
+        people[position].let { person ->
+            holder.binding.tvName.text = person.name
         }
     }
 
