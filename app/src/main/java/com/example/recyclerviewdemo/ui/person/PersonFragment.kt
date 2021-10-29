@@ -1,12 +1,11 @@
 package com.example.recyclerviewdemo.ui.person
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +13,10 @@ import com.example.recyclerviewdemo.R
 import com.example.recyclerviewdemo.databinding.PersonFragmentBinding
 
 class PersonFragment : Fragment() {
-    private lateinit var binding: PersonFragmentBinding
+
+    private var _binding: PersonFragmentBinding? = null
+    private val binding get() = _binding!!
+
     private val viewModel: PersonViewModel by viewModels()
     private lateinit var personAdapter: PersonAdapter
 
@@ -22,7 +24,7 @@ class PersonFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(
+        _binding = DataBindingUtil.inflate(
             inflater, R.layout.person_fragment, container, false
         )
         return binding.root
@@ -45,5 +47,10 @@ class PersonFragment : Fragment() {
             binding.rvPeople.layoutManager = LinearLayoutManager(context)
             binding.rvPeople.adapter = personAdapter
         })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
